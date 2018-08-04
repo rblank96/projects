@@ -1,0 +1,108 @@
+Last login: Tue Apr 11 12:56:38 on ttys000
+You have mail.
+ryans-mbp-8:~ ryanblankemeier$ ssh rblank96@flume.cs.dartmouth.edu
+rblank96@flume.cs.dartmouth.edu's password: 
+Last failed login: Tue Apr 11 12:59:03 EDT 2017 from 10.31.124.1 on ssh:notty
+There were 2 failed login attempts since the last successful login.
+Last login: Tue Apr 11 12:56:55 2017 from 10.31.124.1
+
+[flume:~] 101) cd cs50/labs/lab2/histo
+
+/*
+ * histo.c - make a histogram from input numbers
+ *
+ * usage: histo
+ * where:
+ *   histo is called with no arguements, reads from stdin
+ * output:
+ *   read the stdin, prints updates and final histogram to stdout when ^D is
+ *   pressed
+ * stdin: the input numbers
+ * stdout: histogram
+ *
+ *
+ * Ryan Blankemeier, April 2017
+ */
+
+
+
+## test normal inputs
+
+[flume:histo] 102) ./histo
+16 bins of size 1 for range [0,16)
+10
+20
+16 bins of size 2 for range [0,32)
+35
+16 bins of size 4 for range [0,64)
+19
+15
+10
+[   0:   3] 
+[   4:   7] 
+[   8:  11] **
+[  12:  15] *
+[  16:  19] *
+[  20:  23] *
+[  24:  27] 
+[  28:  31] 
+[  32:  35] *
+[  36:  39] 
+[  40:  43] 
+[  44:  47] 
+[  48:  51] 
+[  52:  55] 
+[  56:  59] 
+[  60:  63] 
+
+## pipe the inputs
+
+[flume:histo] 103) echo {1..100} 1000 | ./histo
+16 bins of size 1 for range [0,16)
+16 bins of size 2 for range [0,32)
+16 bins of size 4 for range [0,64)
+16 bins of size 8 for range [0,128)
+16 bins of size 16 for range [0,256)
+16 bins of size 32 for range [0,512)
+16 bins of size 64 for range [0,1024)
+[   0:  63] ***************************************************************
+[  64: 127] *************************************
+[ 128: 191] 
+[ 192: 255] 
+[ 256: 319] 
+[ 320: 383] 
+[ 384: 447] 
+[ 448: 511] 
+[ 512: 575] 
+[ 576: 639] 
+[ 640: 703] 
+[ 704: 767] 
+[ 768: 831] 
+[ 832: 895] 
+[ 896: 959] 
+[ 960:1023] *
+
+## input a letter
+
+[flume:histo] 104) ./histo
+16 bins of size 1 for range [0,16)
+10
+a
+[   0:   0] 
+[   1:   1] 
+[   2:   2] 
+[   3:   3] 
+[   4:   4] 
+[   5:   5] 
+[   6:   6] 
+[   7:   7] 
+[   8:   8] 
+[   9:   9] 
+[  10:  10] *
+[  11:  11] 
+[  12:  12] 
+[  13:  13] 
+[  14:  14] 
+[  15:  15] 
+
+[flume:histo] 105) 

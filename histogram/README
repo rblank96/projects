@@ -1,0 +1,38 @@
+README for histo.c
+Ryan Blankemeier, April 2017
+
+Compiling:
+	mygcc histo.c -o histo
+
+Usage:
+/* 
+ * histo.c - make a histogram from input numbers
+ * 
+ * usage: histo
+ * where:
+ *   histo is called with no arguements, reads from stdin
+ * output:
+ *   read the stdin, prints updates and final histogram to stdout when ^D is
+ *   pressed
+ * stdin: the input numbers
+ * stdout: histogram
+ *
+ * I used this histogram program to visualize bond angles in a simulation for Computational Structural Biology. If a protein has converged to the state, then I expect the histogram of bond angles over time to less spread out.
+ *
+ * Ryan Blankemeier, April 2017
+ */
+
+Example command lines:
+
+  ./histo
+  echo {1..100} | ./histo
+
+Exit status:
+  0 - success
+
+Assumptions:
+-  input is always a number, will exit if not.
+- no command line arguements
+
+Limitations:
+- input of a non number will end the program
